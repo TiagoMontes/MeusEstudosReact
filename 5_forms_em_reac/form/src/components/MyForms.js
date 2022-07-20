@@ -27,6 +27,7 @@ const MyForms = () => {
                     onChange={handleName}
                 />
                 <p>{name}</p>
+                <p>Teste</p>
             </div>
             {/* 2 - Label envolvendo input */}
             <label htmlFor="">
