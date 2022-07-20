@@ -1,0 +1,13 @@
+body{
+  background-color: black;
+}
+
+.App {
+  text-align: center;
+  color: white;
+}
+
+.App p:hover{
+  color: blueviolet;
+  cursor: pointer;
+}

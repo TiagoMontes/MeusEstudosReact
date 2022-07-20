@@ -1,0 +1,30 @@
+body{
+  text-align: center;
+}
+
+.Zero{
+  transition-duration: 0.5s;
+}
+
+.Zero:hover{
+  color: rgb(62, 255, 213);
+  cursor: pointer;
+}
+
+.primeiro{
+  transition-duration: 0.5s;
+}
+
+.primeiro:hover{
+  color: blueviolet;
+  cursor: pointer;
+}
+
+.segundo{
+  transition-duration: 0.5s;
+}
+
+.segundo:hover{
+  color: rgb(72, 255, 102);
+  cursor: pointer;
+}
