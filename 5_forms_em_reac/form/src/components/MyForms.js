@@ -27,12 +27,18 @@ const MyForms = () => {
                     onChange={handleName}
                 />
                 <p>{name}</p>
-                <p>Teste</p>
             </div>
             {/* 2 - Label envolvendo input */}
+            {/* 4 - onChange inline */}
             <label htmlFor="">
                 <span>E-mail</span>
-                <input type="email" name="email" placeholder="Digite o seu e-mail" />
+                <input 
+                    type="email" 
+                    name="email" 
+                    placeholder="Digite o seu e-mail" 
+                    onChange={(e) => setEmail(e.target.value)}    
+                />
+            <p>{email}</p>
             </label>
             <input type="submit" value="Enviar" />
         </form>
