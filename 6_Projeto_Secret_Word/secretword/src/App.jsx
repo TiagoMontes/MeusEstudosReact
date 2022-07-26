@@ -82,7 +82,7 @@ function App() {
     <div className="App">
       {/* Se o Hook for igual a start, ele irá exibir o componente StartScreen */}
       {gameStage === "start" && <StartScreen startGame={startGame}/>}
-      {gameStage === "game" && <Game verifyLetter={verifyLetter} pickWord={pickWord} pickCategory={pickCategory}/>}
+      {gameStage === "game" && <Game verifyLetter={verifyLetter}/>}
       {gameStage === "end" && <End retry={retry}/>}
     </div>
   );
