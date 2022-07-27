@@ -25,11 +25,17 @@ function App() {
   const [words] = useState(wordsList);
   
   //Seleção de palavras, categorias e letras
-  const [pickWord, setPickWord] = useState();
-  const [pickCategory, setPickCategory] = useState()
+  const [pickedWord, setPickedWord] = useState();
+  const [pickedCategory, setPickedCategory] = useState()
   const [letters, setLetters] = useState([])
-
-  const pickWordAndCategory = () => {
+  
+  //Guessed and Wrong letters, guesses and score.
+  const [guessedLetters, setGessedLetters] = useState([])
+  const [wrongLetters, setWrongLetters] = useState([])
+  const [guesses, setGuesses] = useState(3)
+  const [score, setScore] = useState(0)
+  
+  const pickedWordAndCategory = () => {
     //Pick a random category
     const categories = Object.keys(words)
     const category = categories[Math.floor(Math.random() * Object.keys(categories).length)]
@@ -47,7 +53,7 @@ function App() {
   //Starts the secret word game
   const startGame = () => {
     //Pick word and pick category
-    const { word, category }= pickWordAndCategory()
+    const { word, category }= pickedWordAndCategory()
 
     //Create a array of letters separating with split
     let wordLetters = word.split("")
@@ -60,17 +66,17 @@ function App() {
     console.log(wordLetters)
     
     // Fill states - useState
-    setPickWord(word)
-    setPickCategory(category)
-    setLetters(letters)
+    setPickedWord(word)
+    setPickedCategory(category)
+    setLetters(wordLetters)
 
     //Changing the stage
     setGameStage(stages[1].name)
   }
 
   //Process the letter input
-  const verifyLetter = () => {
-    setGameStage(stages[2].name)
+  const verifyLetter = (letter) => {
+    console.log(letter)
   }
 
   //Retry process
@@ -82,7 +88,18 @@ function App() {
     <div className="App">
       {/* Se o Hook for igual a start, ele irá exibir o componente StartScreen */}
       {gameStage === "start" && <StartScreen startGame={startGame}/>}
-      {gameStage === "game" && <Game verifyLetter={verifyLetter}/>}
+      {gameStage === "game" && (
+        <Game 
+          verifyLetter={verifyLetter}
+          pickedWord={pickedWord} 
+          pickedCategory={pickedCategory} 
+          letters={letters}
+          guessedLetters={guessedLetters}
+          wrongLetters={wrongLetters}
+          guesses={guesses}
+          score={score}
+        />
+      )}
       {gameStage === "end" && <End retry={retry}/>}
     </div>
   );
