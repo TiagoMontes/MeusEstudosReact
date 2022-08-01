@@ -28,14 +28,14 @@ const Game = ({
     <div className="game">
       {/* Este vai ser o contador de pontuação */}
       <p className="points">
-        <span>Ponturação: {score}</span>
+        <span>Score: {score}</span>
       </p>
       {/* Este vai informar uma dica sobre a palavra a ser adivinhada */}
-      <h1>Adivinhe a palavra</h1>
+      <h1>Guess the word</h1>
       <h3 className="tip">
-        Dica sobre a palavra: <span>{pickedCategory}</span>
+        Tip about the word: <span>{pickedCategory}</span>
       </h3>
-      <p>Você ainda tem {guesses} tentativa(s)</p>
+      <p>You still have {guesses} attempts</p>
       {/* Esta div terá as letras sendo exibidas */}
       <div className="wordContainer">
         {letters.map((letter, i) => 
@@ -50,7 +50,7 @@ const Game = ({
       </div>
       {/* Esta div é onde colocaremos nossa parte a ser jogada, letra a ser inserida */}
       <div className="letterContainer">
-        <p>Tente adivinhar uma letra da palavra:</p>
+        <p>Try to guess a letter of the word:</p>
         <form onSubmit={handleSubmit}>
           <input 
             type="text" 
@@ -60,12 +60,12 @@ const Game = ({
             value={letter}
             ref={letterInputRef}
           />
-          <button>Jogar!</button>
+          <button>Play!</button>
         </form>
       </div>
       {/* Esta div irá armazenar e nos mostrar todas as letras erradas */}
       <div className="wrongLettersContainer">
-        <p>Letras já utilizadas:</p>
+        <p>Letters already used:</p>
         {wrongLetters.map((letter, i) => (
           <span key={i}>{letter}, </span>
         ))}
