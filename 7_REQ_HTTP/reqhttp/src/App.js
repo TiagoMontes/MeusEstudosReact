@@ -64,11 +64,40 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Lista de Produtos</h1>
-      {/* 6 - Loading */}
-      {loading && <p>Carregando dados...</p>}
-      {error && <p>{error}</p>}
-      {!error && (
+      <div className='add-product'>
+          <form className="formul" onSubmit={handleSubmit}>
+            <h2>Adicionar produto</h2>
+            <label>
+              <input 
+                className='product'
+                type="text" 
+                value={name} 
+                name="name" 
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Produto"
+                />
+            </label>
+            <label>
+              <input 
+                className='price'
+                type="number" 
+                value={price} 
+                name="price" 
+                onChange={(e) => setPrice(e.target.value)}
+                placeholder="Preço"
+                />
+            </label>
+            {/* 7 - State de Loading no post */}
+            {loading && <input type="submit" disabled value="Aguarde"/>}
+            {!loading && <input className="adicionar" type="submit" value="Adicionar"/>}
+          </form>
+      </div>
+      <div className='lista'>
+       <h1>Lista de Produtos</h1>
+        {/* 6 - Loading */}
+        {loading && <p>Carregando dados...</p>}
+        {error && <p>{error}</p>}
+        {!error && (
         <ul>
           {items &&
             items.map((product) => (
@@ -78,29 +107,7 @@ function App() {
               </li>
             ))}
         </ul>
-      )}
-      <div className='add-product'>
-          <form onSubmit={handleSubmit}>
-            <label>
-              Nome:
-              <input 
-                type="text" 
-                value={name} 
-                name="name" 
-                onChange={(e) => setName(e.target.value)}/>
-            </label>
-            <label>
-              Nome:
-              <input 
-                type="number" 
-                value={price} 
-                name="price" 
-                onChange={(e) => setPrice(e.target.value)}/>
-            </label>
-            {/* 7 - State de Loading no post */}
-            {loading && <input type="submit" disabled value="Aguarde"/>}
-            {!loading && <input type="submit" value="Criar"/>}
-          </form>
+        )} 
       </div>
     </div>
   );
