@@ -5,6 +5,8 @@ import { useState, useEffect } from "react"
 // 4 - Custom Hook
 import { useFetch } from './hooks/useFetch';
 
+import Imagem from '../src/img/Cometas.png'
+
 const url = "http://localhost:3000/products"
 
 function App() {
@@ -64,6 +66,7 @@ function App() {
 
   return (
     <div className="App">
+      <img src={Imagem}></img>
       <div className='add-product'>
           <form className="formul" onSubmit={handleSubmit}>
             <h2>Adicionar produto</h2>
@@ -93,21 +96,23 @@ function App() {
           </form>
       </div>
       <div className='lista'>
-       <h1>Lista de Produtos</h1>
-        {/* 6 - Loading */}
-        {loading && <p>Carregando dados...</p>}
-        {error && <p>{error}</p>}
-        {!error && (
-        <ul>
-          {items &&
-            items.map((product) => (
-              <li key={product.id}>
-                {product.name} - R$: {product.price}
-                <button onClick={() => handleRemove(product.id)}>Excluir</button>
-              </li>
-            ))}
-        </ul>
-        )} 
+        <div className='Produtos'>
+          <h1>Lista de Produtos</h1>
+          {/* 6 - Loading */}
+          {loading && <p>Carregando dados...</p>}
+          {error && <p>{error}</p>}
+          {!error && (
+          <ul>
+            {items &&
+              items.map((product) => (
+                <li key={product.id}>
+                  {product.name.toUpperCase()} - R$ {product.price}
+                  <button onClick={() => handleRemove(product.id)}>Excluir</button>
+                </li>
+              ))}
+          </ul>
+          )}
+        </div>
       </div>
     </div>
   );

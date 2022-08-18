@@ -6,84 +6,14 @@
       "price": 59.9
     },
     {
-      "id": 2,
-      "name": "Calça vermelha",
-      "price": 90
-    },
-    {
-      "id": 3,
-      "name": "Boné aba reta",
-      "price": 29.9
-    },
-    {
       "name": "Carro",
       "price": "12.590",
       "id": 4
     },
     {
-      "name": "Celular",
-      "price": "1.800",
-      "id": 7
-    },
-    {
-      "name": "Mouse",
-      "price": "60",
-      "id": 8
-    },
-    {
-      "name": "Teclado",
-      "price": "400",
-      "id": 9
-    },
-    {
-      "name": "Monitor",
-      "price": "950",
-      "id": 10
-    },
-    {
-      "name": "Gabinete",
-      "price": "350",
-      "id": 12
-    },
-    {
-      "name": "Fox 1.0",
-      "price": "12.800",
-      "id": 13
-    },
-    {
-      "name": "",
-      "price": "",
-      "id": 14
-    },
-    {
-      "name": "",
-      "price": "",
-      "id": 15
-    },
-    {
-      "name": "",
-      "price": "",
-      "id": 16
-    },
-    {
-      "name": "",
-      "price": "",
-      "id": 17
-    },
-    {
-      "name": "",
-      "price": "",
-      "id": 18
-    },
-    {
-      "name": "",
-      "price": "",
-      "id": 19
-    },
-    {
-      "name": "",
-      "price": "",
-      "id": 20
+      "name": "Calçado",
+      "price": "40.90",
+      "id": 5
     }
   ]
 }
