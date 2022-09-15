@@ -16,12 +16,33 @@ const Contact = () => {
         console.log(numero);
     }
 
+    const [number, setNumber] = useState("68 99999-9999");
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+
+      console.log(number);
+      setNumber("")
+    }
+
   return (
     <div>
-        <h1>Contact</h1>
-        <p>Contato: {numero}</p>
-        <p>useState Contato: {contact}</p>
-        <button onClick={changeContact}>Exibir contato secreto</button>
+        <h1>Contact with useState</h1>
+        <p>Contact: {numero}</p>
+        <p>useState Contact: {contact}</p>
+        <button onClick={changeContact}>Display secret contact</button>
+        <hr />
+        <form onSubmit={handleSubmit}>
+          <h3>onChange / onSubmit</h3>
+          <label>Enter your number: </label>
+          <input 
+            type="text" 
+            value={number} 
+            onChange={(e) => setNumber(e.target.value)}
+          />
+          <input type="submit" value="Enviar" />
+        </form>
+        <p>My number is: {number}</p>
     </div>
   )
 }
