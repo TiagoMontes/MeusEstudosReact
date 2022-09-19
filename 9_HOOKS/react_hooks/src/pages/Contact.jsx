@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useReducer } from "react"
 
 const Contact = () => {
     
@@ -25,6 +25,21 @@ const Contact = () => {
       setNumber("")
     }
 
+  const funcao = (state, acao) => {
+    switch(acao) {
+      case "incrementar":
+      return state + 1;
+
+      case "decrementar":
+      return state - 1;
+
+      default:
+      return 0;
+    }
+  }
+
+  const [contador, executarFuncao] = useReducer (funcao, 0);
+
   return (
     <div>
         <h1>Contact with useState</h1>
@@ -43,6 +58,11 @@ const Contact = () => {
           <input type="submit" value="Enviar" />
         </form>
         <p>My number is: {number}</p>
+        <hr />
+        <h2>useReducer</h2>
+        <p>Encrementador: {contador}</p>
+        <button onClick={e => executarFuncao("incrementar")}>Encremente</button>
+        <button onClick={e => executarFuncao("decrementar")}>Decremente</button>
     </div>
   )
 }
