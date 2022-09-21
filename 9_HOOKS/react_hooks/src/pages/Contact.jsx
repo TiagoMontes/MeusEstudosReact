@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useState, useReducer } from "react"
 
 const Contact = () => {
@@ -37,8 +38,13 @@ const Contact = () => {
       return 0;
     }
   }
-
   const [contador, executarFuncao] = useReducer (funcao, 0);
+
+  // useEffect
+
+  useEffect(() => {
+    console.log("Executando useEffect no Contador");
+  },[contador])
 
   return (
     <div>
