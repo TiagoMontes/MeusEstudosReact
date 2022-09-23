@@ -65,7 +65,7 @@ const Contact = () => {
         </form>
         <p>My number is: {number}</p>
         <hr />
-        <h2>useReducer</h2>
+        <h2>useReducer e useEffect</h2>
         <p>Encrementador: {contador}</p>
         <button onClick={e => executarFuncao("incrementar")}>Encremente</button>
         <button onClick={e => executarFuncao("decrementar")}>Decremente</button>
