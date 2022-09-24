@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useState, useReducer } from "react"
+import { useState, useReducer, useEffect, useRef } from "react"
 
 const Contact = () => {
     
@@ -46,6 +45,12 @@ const Contact = () => {
     console.log("Executando useEffect no Contador");
   },[contador])
 
+  // useRef
+  const count = useRef(0)
+  const count2 = 0;
+  const inputRef = useRef();
+  const buttonRef = useRef()
+
   return (
     <div>
         <h1>Contact with useState</h1>
@@ -69,6 +74,29 @@ const Contact = () => {
         <p>Encrementador: {contador}</p>
         <button onClick={e => executarFuncao("incrementar")}>Encremente</button>
         <button onClick={e => executarFuncao("decrementar")}>Decremente</button>
+        <hr />
+        <h2>useRef</h2>
+        <h3>Contador: {count.current}</h3>
+        <input 
+          type="text"
+          ref={inputRef}
+        />
+        <button onClick={() => {
+          inputRef.current.value += "valor";
+          console.log(inputRef.current);
+          inputRef.current.focus();
+          
+          buttonRef.current.click();
+          // count.current += 1
+
+          // console.log("count",count.current);
+          // console.log("count2",count2);
+          // console.log("a");
+        }}>Incremente</button>
+        <button 
+          onClick={() => alert("Clicou!")}
+          ref={buttonRef}
+        >Alerta!</button>
     </div>
   )
 }
