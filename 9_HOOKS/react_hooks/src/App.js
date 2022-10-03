@@ -12,6 +12,7 @@ import { Contact } from './pages/Contact';
 function App() {
   return (
     <div className="App">
+      <h1>Teste</h1>
       <h1>React Hooks</h1>
       <HookUseContext>
         <BrowserRouter>
