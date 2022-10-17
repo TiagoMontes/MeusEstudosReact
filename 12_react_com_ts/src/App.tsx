@@ -70,7 +70,7 @@ function App() {
       {myText && <p>Have text in the variable</p>}
       {mySecondText && <p>Have text in the variable</p>}
       {fixedText && <p>Fixed test</p>}
-      <p>Just testing a git</p>
+      <p>Just testing</p>
     </div>
   );
 }
