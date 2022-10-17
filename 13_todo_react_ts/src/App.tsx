@@ -1,0 +1,17 @@
+import React from 'react';
+
+//components
+import { Footer } from './components/Footer';
+import { Header } from './components/Header';
+
+function App() {
+  return (
+    <div className="App">
+      <Header />
+      <h1>Conteúdo...</h1>
+      <Footer />
+    </div>
+  );
+}
+
+export default App;
