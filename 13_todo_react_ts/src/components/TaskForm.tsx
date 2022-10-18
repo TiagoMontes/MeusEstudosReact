@@ -11,36 +11,46 @@ type Props = {
     taskList: ITask[];
     setTaskList?: React.Dispatch<React.SetStateAction<ITask[]>>;
     task?: ITask | null;
+    handleUpdate?(id: number, title: string, difficulty: number): void;
 }
 
-const TaskForm = ({ btnText, taskList, setTaskList, task }: Props) => {
+const TaskForm = ({
+    btnText,
+    taskList,
+    setTaskList,
+    task,
+    handleUpdate
+}: Props) => {
     
     const [Id, setId] = useState<number>(0);
     const [title, setTitle] = useState<string>('');
     const [difficulty, setDifficulty] = useState<number>(0);
 
     useEffect(() => {
-        if(task){
+        if (task) {
             setId(task.id);
             setTitle(task.title);
             setDifficulty(task.difficulty);
         }
-    },[task])
+    }, [task])
 
     const addTaskHandler = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        
-        const id = Math.floor(Math.random() * 1000)
+    
+        if (handleUpdate) {
+            handleUpdate(Id, title, difficulty);
+        } else {
+            const id = Math.floor(Math.random() * 1000)
 
-        const newTask: ITask = { id, title, difficulty }
-        
-        // ! -> setTaskList é opcional, então temos que verificar se existe
-        setTaskList!([...taskList, newTask])
+            const newTask: ITask = { id, title, difficulty }
 
-        setTitle("")
-        setDifficulty(0)
+            // ! -> setTaskList é opcional, então temos que verificar se existe
+            setTaskList!([...taskList, newTask])
 
-        console.log(taskList)
+            setTitle("")
+            setDifficulty(0)
+        }
+
     }
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -75,7 +85,7 @@ const TaskForm = ({ btnText, taskList, setTaskList, task }: Props) => {
             </div>
             <input type="submit" value={btnText} />
         </form>
-)
+    )
 }
 
 export {TaskForm}
